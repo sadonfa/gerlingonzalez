@@ -1,0 +1,116 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{# djlint:off #} {% block title %} {{title}} {% endblock title %}{# djlint:on #}
+{% block content %}
+    <section class="content__page content__curriculum">
+        <!-- contenido de about me -->
+        <header class="curriculum__header">
+            <h1 class="curriculum__title">Curriculum</h1>
+        </header>
+        <div class="curriculum__container">
+            <div class="curriculum__left">
+                <header class="curriculum__subheader">
+                    <h2 class="curriculum__subtitle">Formacion</h2>
+                </header>
+                <div class="curriculum__timelines">
+                    {% for training in trainings %}
+                        <article class="timelines__timeline">
+                            <header class="timiline__header">
+                                <h4 class="timeline__year">{{ training.year }}</h4>
+                                <span class="timeline__company">{{ training.company }}</span>
+                            </header>
+                            <div class="timeline__divider"></div>
+                            <div class="timeline__description">
+                                <h3 class="timeline__title">{{ training.title }}</h3>
+                                <p class="timeline__text">{{ training.description|safe }}</p>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+                <header class="curriculum__subheader">
+                    <h2 class="curriculum__subtitle">Experiencias</h2>
+                </header>
+                <div class="curriculum__timeline">
+                    {% for experience in experiences %}
+                        <article class="timelines__timeline">
+                            <header class="timiline__header">
+                                <h4 class="timeline__year">{{ experience.year }}</h4>
+                                <span class="timeline__company">{{ experience.company }}</span>
+                            </header>
+                            <div class="timeline__divider"></div>
+                            <div class="timeline__description">
+                                <h3 class="timeline__title">{{ experience.title }}</h3>
+                                <p class="timeline__text">{{ experience.description|safe }}</p>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="curriculum__right">
+                <header class="curriculum__subheader">
+                    <h2 class="curriculum__subtitle">
+                        Habilidades de <span class="subtitle__color">diseño</span>
+                    </h2>
+                </header>
+                <div class="curriculum__skills">
+                    {% for skills_desing in skills_desings %}
+                        <article class="skills__title">
+                            <h4 class="skills__text">{{ skills_desing.title }}</h4>
+                            <span class="skills__number">{{ skills_desing.percentage }}%</span>
+                        </article>
+                        <div class="skills__progressbar">
+                            <div class="skills__porcentage"
+                                 style="width: {{ skills_desing.percentage }}%"></div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <header class="curriculum__subheader">
+                    <h2 class="curriculum__subtitle">
+                        Habilidades de <span class="subtitle__color">codigo</span>
+                    </h2>
+                </header>
+                <div class="curriculum__skills">
+                    {% for skills_code in  skills_codes %}
+                        <article class="skills__title">
+                            <h4 class="skills__text">{{ skills_code.title }}</h4>
+                            <span class="skills__number">{{ skills_code.percentage }}%</span>
+                        </article>
+                        <div class="skills__progressbar">
+                            <div class="skills__porcentage"
+                                 style="width: {{ skills_code.percentage }}%"></div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <header class="curriculum__subheader">
+                    <h2 class="curriculum__subtitle">Area de conocimiento</h2>
+                </header>
+                <div class="curriculum__knowledges">
+                    <ul class="knowledges__list">
+                        {% for know in knowledges %}<li class="knowledges__options">{{ know.title }}</li>{% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="curriculum__certificates">
+            <header class="curriculum__subheader">
+                <h2 class="curriculum__subtitle">Certificados</h2>
+            </header>
+            <section class="certificates__container">
+                {% for certificate in certificates %}
+                    <article class="certificates__certificate">
+                        <div class="certificate__logo">
+                            <img src="{{ certificate.logo.url }}"
+                                 alt="Certificado"
+                                 class="certificate__image" />
+                        </div>
+                        <div class="certificate__content">
+                            <h4 class="certificate__title">{{ certificate.title }}</h4>
+                            <span class="certificate__id">ID Verificacion: {{ certificate.verificate }}</span>
+                            <span class="certificate__date">{{ certificate.data_certi }}</span>
+                        </div>
+                    </article>
+                {% endfor %}
+            </section>
+        </div>
+    </section>
+{% endblock content %}

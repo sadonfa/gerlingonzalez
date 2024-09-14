@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <!--Styles-->
+    <link rel="stylesheet"
+          href="{% static 'fonts/fontawesome-free-6.1.2-web/css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/fonts.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/scroll.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/form-about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
+    <!-- Scripts -->
+    <script src="{% static 'js/map.js' %}" defer></script>
+    <title>
+      {% block title %}
+      {% endblock title %}
+    </title>
+  </head>
+  <body>
+    <!-- layout principal -->
+    <div class="layout">
+      <!-- barra lateral (info usuario) -->
+      <aside class="layout__aside">
+        <section class="aside__user-info">
+          <!-- Informacion general del usuario -->
+          <div class="user-info__general">
+            <div class="user-info__container-image">
+              <img src="{% static 'img/default-user.jpg' %}"
+                   alt="Gerlin Gonzalez"
+                   class="user-info__image" />
+            </div>
+            <h2 class="user-info__name">Gerlin Gonzalez</h2>
+            <h4 class="user-info__job">Desarrollador Web</h4>
+          </div>
+          <!-- Menu de Navegacion -->
+          <nav class="layout__menu">
+            <ul class="menu__list">
+              <li class="menu__option">
+              <a href="{% url 'home' %}"
+                 class="menu__link {% if request.path == '/inicio/' %}menu__link--active{% endif %}"><i class="menu__icon fa-solid fa-house"></i>
+              <span class="menu__overlay">home</span>
+            </a>
+          </li>
+          <li class="menu__option">
+          <a href="{% url 'about' %}"
+             class="menu__link {% if request.path == '/sobre-mi/' %}menu__link--active{% endif %}"><i class="menu__icon fa-solid fa-user"></i>
+          <span class="menu__overlay">Sobre mi</span>
+        </a>
+      </li>
+      <li class="menu__option">
+      <a href="{% url 'curriculum' %}"
+         class="menu__link {% if request.path == '/curriculum/' %}menu__link--active{% endif %}"><i class="menu__icon fa-solid fa-graduation-cap"></i>
+      <span class="menu__overlay">Curriculum</span>
+    </a>
+  </li>
+  <li class="menu__option">
+  <a href="{% url 'portfolio' %}"
+     class="menu__link {% if request.path == '/portafolio/' %}menu__link--active{% endif %}"><i class="menu__icon fa-solid fa-briefcase"></i>
+  <span class="menu__overlay">Portafolio</span>
+</a>
+</li>
+<li class="menu__option">
+<a href="{% url 'blog' %}"
+   class="menu__link  {% if request.path == '/blog/' %}menu__link--active{% endif %}"><i class="menu__icon fa-solid fa-book"></i>
+<span class="menu__overlay">Blog</span>
+</a>
+</li>
+<li class="menu__option">
+<a href="{% url 'contact' %}"
+   class="menu__link  {% if request.path == '/contacto/' %}menu__link--active{% endif %}"><i class="menu__icon fa-solid fa-envelope"></i>
+<span class="menu__overlay">Contacto</span>
+</a>
+</li>
+</ul>
+</nav>
+<!-- link redes sociales -->
+<div class="user-info__links">
+  <ul class="links__social">
+    <li class="social__options">
+      <a href="#" class="social__link" target=_blank>
+        <i class="social__icon fa-brands fa-youtube"></i>
+      </a>
+    </li>
+    <li class="social__options">
+      <a href="www.linkedin.com/in/sadonfa" class="social__link" target=_blank>
+        <i class="social__icon fa-brands fa-linkedin"></i>
+      </a>
+    </li>
+    <li class="social__options">
+      <a href="https://www.instagram.com/gegovaco/"
+         class="social__link"
+         target="_blank">
+        <i class="social__icon fa-brands fa-instagram"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+<!-- boton de curriculum -->
+<div class="user-info__button">
+  <a href="#" class="user-info__btn">Descarga CV</a>
+</div>
+<!-- Pie de pagina -->
+<footer class="user-info__footer">
+  &copy; 2024 Gerlin Gonzalez
+</footer>
+</section>
+</aside>
+<!-- contenido principal -->
+<main class="layout__content">
+  {% block content %}
+  {% endblock content %}
+</main>
+</div>
+</body>
+</html>
