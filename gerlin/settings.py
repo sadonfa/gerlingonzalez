@@ -155,11 +155,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Correo 
 
-EMAIL_HOST = 'gegova.com.co'
-EMAIL_HOST_USER = 'gerlin@gegova.com.co'
-EMAIL_HOST_PASSWORD = 'Gegova2023@'
-EMAIL_PORT = '25'
-
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+EMAIL_HOST = 'mail.gegova.com.co'
+EMAIL_HOST_USER = env('MAIL_USER')
+EMAIL_HOST_PASSWORD = env('MAIL_PASSWORD')
+EMAIL_PORT = 25
 
 # Configuracion de CKEditor
 
