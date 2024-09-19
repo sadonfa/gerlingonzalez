@@ -195,7 +195,7 @@
   }
 
   .layout__aside--visible {
-    width: 50%;
+    width: 60%;
     margin-right: 0;
     opacity: 1;
   }
@@ -313,5 +313,15 @@
 
   .contact__container {
     flex-direction: column;
+  }
+
+  .layout__aside--visible {
+    width: 65%;
+  }
+}
+
+@media (max-width: 450px) {
+  .page__name {
+    font-size: 4.4rem;
   }
 }
