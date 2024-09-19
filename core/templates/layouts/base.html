@@ -9,7 +9,6 @@
     <link rel="stylesheet"
           href="{% static 'fonts/fontawesome-free-6.1.2-web/css/all.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/fonts.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/fonts.css' %}" />
     <link rel="stylesheet" href="{% static 'css/reset.css' %}" />
     <link rel="stylesheet" href="{% static 'css/scroll.css' %}" />
     <link rel="stylesheet" href="{% static 'css/form-about.css' %}">
@@ -17,6 +16,7 @@
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}" />
     <!-- Scripts -->
     <script src="{% static 'js/map.js' %}" defer></script>
+    <script src="{% static 'js/menu.js' %}" defer></script>
     <title>
       {% block title %}
       {% endblock title %}
@@ -44,37 +44,37 @@
               <li class="menu__option">
               <a href="{% url 'home' %}"
                  class="menu__link {% if request.path == '/inicio/' %}menu__link--active{% endif %}"><i class="menu__icon fa-solid fa-house"></i>
-              <span class="menu__overlay">home</span>
+              <span class="menu__overlay {% if request.path == '/inicio/' %}menu__link--active{% endif %}">home</span>
             </a>
           </li>
           <li class="menu__option">
           <a href="{% url 'about' %}"
              class="menu__link {% if request.path == '/sobre-mi/' %}menu__link--active{% endif %}"><i class="menu__icon fa-solid fa-user"></i>
-          <span class="menu__overlay">Sobre mi</span>
+          <span class="menu__overlay {% if request.path == '/sobre-mi/' %}menu__link--active{% endif %}">Sobre mi</span>
         </a>
       </li>
       <li class="menu__option">
       <a href="{% url 'curriculum' %}"
          class="menu__link {% if request.path == '/curriculum/' %}menu__link--active{% endif %}"><i class="menu__icon fa-solid fa-graduation-cap"></i>
-      <span class="menu__overlay">Curriculum</span>
+      <span class="menu__overlay {% if request.path == '/curriculum/' %}menu__link--active{% endif %}">Curriculum</span>
     </a>
   </li>
   <li class="menu__option">
   <a href="{% url 'portfolio' %}"
      class="menu__link {% if request.path == '/portafolio/' %}menu__link--active{% endif %}"><i class="menu__icon fa-solid fa-briefcase"></i>
-  <span class="menu__overlay">Portafolio</span>
+  <span class="menu__overlay {% if request.path == '/portafolio/' %}menu__link--active{% endif %}">Portafolio</span>
 </a>
 </li>
 <li class="menu__option">
 <a href="{% url 'blog' %}"
    class="menu__link  {% if request.path == '/blog/' %}menu__link--active{% endif %}"><i class="menu__icon fa-solid fa-book"></i>
-<span class="menu__overlay">Blog</span>
+<span class="menu__overlay {% if request.path == '/blog/' %}menu__link--active{% endif %}">Blog</span>
 </a>
 </li>
 <li class="menu__option">
 <a href="{% url 'contact' %}"
    class="menu__link  {% if request.path == '/contacto/' %}menu__link--active{% endif %}"><i class="menu__icon fa-solid fa-envelope"></i>
-<span class="menu__overlay">Contacto</span>
+<span class="menu__overlay {% if request.path == '/contacto/' %}menu__link--active{% endif %}">Contacto</span>
 </a>
 </li>
 </ul>
@@ -111,6 +111,11 @@
 </footer>
 </section>
 </aside>
+<!-- Menu responsive -->
+<div class="layout__menu-toggle">
+  <i class="menu-toggle__icon fa-solid fa-bars"></i>
+  <i class="menu-toggle__icon fa-solid fa-xmark"></i>
+</div>
 <!-- contenido principal -->
 <main class="layout__content">
   {% block content %}
